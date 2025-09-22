@@ -25,11 +25,20 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         GameOverObject.SetActive(true);
-        Destroy(Player);        
+        Destroy(Player);
     }
 
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void NextScene()
+    {
+        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        if (SceneManager.sceneCountInBuildSettings > nextScene)
+        {
+            SceneManager.LoadScene(nextScene);
+        }
     }
 }
