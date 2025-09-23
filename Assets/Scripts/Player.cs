@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
             if (DoubleJumping && !IsBlowing)
             {
                 RigiBody.AddForce(new Vector2(0f, (JumpForce * DoubleJumpingValue())), ForceMode2D.Impulse);
+                Animator.SetBool("double", true);
                 DoubleJumping = false;
             }
         }
@@ -116,6 +117,7 @@ public class Player : MonoBehaviour
         {
             IsJumping = false;
             Animator.SetBool("jump", false);
+            Animator.SetBool("double", false);
         }
 
         if (

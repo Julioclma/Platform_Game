@@ -10644,6 +10644,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3133830541708114127, guid: efbe9b5f81ef4414db99ecab824e3172, type: 3}
+      propertyPath: DoubleJumpingPercentil
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 3444399855260319131, guid: efbe9b5f81ef4414db99ecab824e3172, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.987
