@@ -155,8 +155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000029087, y: -442.1913}
-  m_SizeDelta: {x: 391.0894, y: 134.2643}
+  m_AnchoredPosition: {x: -0.0000095367, y: -454}
+  m_SizeDelta: {x: 335.5928, y: 94.6239}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &38048584
 MonoBehaviour:
@@ -202,13 +202,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1690288943}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: StartNewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jogar novamente
+  m_text: MENU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -499,6 +499,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1048431303
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2350628135315237712, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -875.13763
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350628135315237712, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -247.63747
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350628135315237712, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350628135315237712, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350628135315237712, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350628135315237712, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350628135315237712, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350628135315237712, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350628135315237712, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350628135315237712, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235716439570473021, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
+      propertyPath: m_Name
+      value: GameController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
 --- !u!1 &1141722607
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +971,17 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1690288943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2858372786383867559, guid: 6bcd1d4637a346341aeb4e450b6db060, type: 3}
+  m_PrefabInstance: {fileID: 1048431303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287525bf8a271ec47855b0f9ced0f2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameController
 --- !u!1 &1908956859
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,8 +1048,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1162,3 +1230,4 @@ SceneRoots:
   - {fileID: 1432460406}
   - {fileID: 240230540}
   - {fileID: 791386778}
+  - {fileID: 1048431303}
