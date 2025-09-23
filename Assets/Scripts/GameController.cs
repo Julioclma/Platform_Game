@@ -8,13 +8,16 @@ public class GameController : MonoBehaviour
     public int TotalScore;
     public static GameController GameControllerInstance;
     public TextMeshProUGUI ScoreText;
-    public GameObject GameOverObject;
+    public GameObject GameOverObject = null;
     public GameObject Player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GameControllerInstance = this;
-        GameOverObject.SetActive(false);
+        if (GameOverObject != null)
+        {
+            GameOverObject.SetActive(false);
+        }
     }
 
     public void UpdateScoreText()
@@ -30,7 +33,7 @@ public class GameController : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void NextScene()
@@ -40,5 +43,10 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadScene(nextScene);
         }
+    }
+
+    public void StartNewGame()
+    {
+        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - SceneManager.sceneCountInBuildSettings);
     }
 }

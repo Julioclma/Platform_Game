@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public bool IsJumping;
     public bool DoubleJumping;
     public int DoubleJumpingPercentil;
+    private bool IsBlowing = false;
 
 
 
@@ -28,7 +29,6 @@ public class Player : MonoBehaviour
     {
         Move();
         Jump();
-
     }
 
     public float DoubleJumpingValue()
@@ -76,18 +76,37 @@ public class Player : MonoBehaviour
             Animator.SetBool("jump", true);
             Animator.SetBool("walk", false);
 
-            if (!IsJumping)
+            if (!IsJumping && !IsBlowing)
             {
                 RigiBody.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
                 DoubleJumping = true;
                 return;
             }
 
-            if (DoubleJumping)
+            if (DoubleJumping && !IsBlowing)
             {
                 RigiBody.AddForce(new Vector2(0f, (JumpForce * DoubleJumpingValue())), ForceMode2D.Impulse);
                 DoubleJumping = false;
             }
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D collider2D)
+    {
+        //ventilador
+        if (collider2D.gameObject.layer == 11)
+        {
+            IsBlowing = true;
+        }
+
+    }
+
+    void OnTriggerExit2D(Collider2D collider2D)
+    {
+        //ventilador
+        if (collider2D.gameObject.layer == 11)
+        {
+            IsBlowing = false;
         }
     }
 
@@ -99,7 +118,11 @@ public class Player : MonoBehaviour
             Animator.SetBool("jump", false);
         }
 
-        if (collision2D.gameObject.tag == "Spike")
+        if (
+        collision2D.gameObject.tag == "Spike"
+        ||
+        collision2D.gameObject.tag == "Saw"
+        )
         {
             GameController.GameControllerInstance.GameOver();
         }
