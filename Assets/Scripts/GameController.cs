@@ -1,3 +1,4 @@
+using Praticando_Game_2D.Assets.Scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -39,8 +40,13 @@ public class GameController : MonoBehaviour
     public void NextScene()
     {
         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+
         if (SceneManager.sceneCountInBuildSettings > nextScene)
         {
+            //atualiza global score
+            GlobalPontuation.Instance.UpdateScore(TotalScore);
+            Debug.Log(GlobalPontuation.Instance.Score);
+            //carrega prox cena
             SceneManager.LoadScene(nextScene);
         }
     }
