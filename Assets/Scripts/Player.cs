@@ -43,8 +43,11 @@ public class Player : MonoBehaviour
 
         if (horizontalInput != 0)
         {
-            Vector3 movement = new Vector3(horizontalInput, 0f, 0f);
-            Transform.position += movement * Time.deltaTime * Speed;
+            // Vector3 movement = new Vector3(horizontalInput, 0f, 0f);
+            //move personagem em uma posicao
+            // Transform.position += movement * Time.deltaTime * Speed;
+
+            RigiBody.linearVelocity = new Vector2(horizontalInput * Speed, RigiBody.linearVelocity.y);
             Animator.SetBool("walk", true);
             PlayerDirection(horizontalInput);
             return;
@@ -80,6 +83,7 @@ public class Player : MonoBehaviour
             if (!IsJumping && !IsBlowing)
             {
                 RigiBody.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
+                IsJumping = true;
                 DoubleJumping = true;
                 return;
             }
@@ -132,14 +136,6 @@ public class Player : MonoBehaviour
         {
             Dead = true;
             PlayerLife.Instance.Damage();
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D collision2D)
-    {
-        if (collision2D.gameObject.layer == 8)
-        {
-            IsJumping = true;
         }
     }
 }
