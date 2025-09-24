@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public static GameController GameControllerInstance;
     public TextMeshProUGUI ScoreText;
     public GameObject GameOverObject = null;
+    public TextMeshProUGUI GameOverButtonTextObject;
     public GameObject Player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,15 +27,29 @@ public class GameController : MonoBehaviour
         ScoreText.text = TotalScore.ToString();
     }
 
-    public void GameOver()
+    public void GameOver(int actualLife)
     {
         GameOverObject.SetActive(true);
+        if (actualLife == 0)
+        {
+            GameOverButtonTextObject.text = "Menu";
+        }
+        else
+        {
+            GameOverButtonTextObject.text = "Restart";
+        }
         Destroy(Player);
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (GameOverButtonTextObject.text == "Restart")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            return;
+        }
+
+        StartNewGame();
     }
 
     public void NextScene()
@@ -43,9 +58,9 @@ public class GameController : MonoBehaviour
 
         if (SceneManager.sceneCountInBuildSettings > nextScene)
         {
+            try { PlayerLife.Instance.AddLife(); } catch (System.Exception) { }
             //atualiza global score
             GlobalPontuation.Instance.UpdateScore(TotalScore);
-            Debug.Log(GlobalPontuation.Instance.Score);
             //carrega prox cena
             SceneManager.LoadScene(nextScene);
         }
@@ -54,5 +69,10 @@ public class GameController : MonoBehaviour
     public void StartNewGame()
     {
         SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - SceneManager.sceneCountInBuildSettings);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

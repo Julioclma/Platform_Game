@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\Apple.cs" />
     <Compile Include="Assets\Scripts\GlobalPontuation.cs" />
     <Compile Include="Assets\Scripts\CheckPoint.cs" />
+    <Compile Include="Assets\Scripts\PlayerLife.cs" />
     <Compile Include="Assets\Scripts\Saw.cs" />
   </ItemGroup>
   <ItemGroup>

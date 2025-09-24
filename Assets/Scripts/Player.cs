@@ -9,11 +9,12 @@ public class Player : MonoBehaviour
     private Rigidbody2D RigiBody;
     private Animator Animator;
     private Transform Transform;
+    private bool Dead = false;
     public bool IsJumping;
     public bool DoubleJumping;
     public int DoubleJumpingPercentil;
     private bool IsBlowing = false;
-
+    public Player Instance;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -121,12 +122,16 @@ public class Player : MonoBehaviour
         }
 
         if (
+        (
         collision2D.gameObject.tag == "Spike"
         ||
         collision2D.gameObject.tag == "Saw"
         )
+        && !Dead
+        )
         {
-            GameController.GameControllerInstance.GameOver();
+            Dead = true;
+            PlayerLife.Instance.Damage();
         }
     }
 

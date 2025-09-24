@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
             else
             {
                 PlayerDie = true;
-                GameController.GameControllerInstance.GameOver();
+                PlayerLife.Instance.Damage();
             }
         }
     }
